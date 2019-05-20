@@ -1,7 +1,7 @@
 # Author: Thomas Hollis
 # Date: 19/05/2019
 # Purpose: Extract top speed from all Strava .gpx files (they don't give it to you because they don't want to encourage
-#          any 'dangerous' behaviour...
+#          any 'dangerous' behaviour...)
 
 # 0. Import libraries
 import gpxpy
