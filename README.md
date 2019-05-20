@@ -1,5 +1,5 @@
 # Strava-Top-Speed
-A mini repo containing scripts to extract top speed from Strava .gpx data
+A mini repo containing code to extract top speed from Strava .gpx data
 
 ## Step 0. Download your Strava data
 
@@ -7,7 +7,7 @@ A mini repo containing scripts to extract top speed from Strava .gpx data
 - You will receive an email with a ```.zip``` file
 - Extract the file and keep all the ```.gpx``` files
 - Place the files in the same directory as the [main Python script](https://github.com/PsiPhiTheta/Strava-Top-Speed/blob/master/StravaTopSpeed.py) you downloaded from this repo
-- Edit the Python script on line 13 to change the number of ```total_rides``` to the total number of ```.gpx``` files you have (in my case 112)
+- Edit the Python script on line 17 to change the number of ```total_rides``` to the total number of ```.gpx``` files you have (in my case 112). You can also edit the threshold value to check for a reasonable speed (helps exclude GPS errors).
 
 ## Step 1. Download and install Python + libraries
 
