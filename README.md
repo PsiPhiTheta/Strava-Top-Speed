@@ -17,5 +17,3 @@ A mini repo containing scripts to extract top speed from Strava .gpx data
 ## Step 2. Run 
 
 - Run the script and examine the output
-
-*Note: an update will soon be pushed which uses Kalman filters to smooth out GPS errors*
