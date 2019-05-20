@@ -6,10 +6,14 @@
 # 0. Import libraries
 import gpxpy
 import pandas as pd
+from matplotlib import pyplot as plt
 
 # 1. Set up data structures
+threshold = 60
+tot = 0
 gpx_files = []
 top_speeds = []
+all_speeds = []
 total_rides = 112  # add your total number of rides (.gpx files here)
 
 # 2. Import data from folder
@@ -22,9 +26,6 @@ for i in range(0, total_rides):
 print("All {} gpx files successfully imported.".format(len(gpx_files)))
 
 # 3. Extract top speed of all Strava rides (note: GPS glitches must be smoothed for reliable top speed)
-
-# Experiments:
-
 for j in range(0, len(gpx_files)):
     print("Processing Ride{}...".format(j))
 
@@ -44,9 +45,16 @@ for j in range(0, len(gpx_files)):
 
     columns = ['Longitude', 'Latitude', 'Altitude', 'Time', 'Speed']
     df = pd.DataFrame(data, columns=columns)
+    all_speeds.append(df.Speed*3600*(1/1000))
     top_speeds.append(max(df.Speed))
+
+for i in all_speeds:
+    plt.plot(i)
+    tot += sum(i > threshold)
+
 
 top = (max(top_speeds)/1000)*3600
 
 print("================== Data analysis complete ==================")
 print("Top speed of all analysed rides is: {:.2f} km/h.".format(top))
+print("Number of times speed was faster than {}km/h: {}".format(threshold, tot))
